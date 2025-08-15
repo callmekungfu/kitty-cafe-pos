@@ -6,7 +6,7 @@ import {
   completeOrder,
   getProducts,
 } from './store.js';
-import { CafeOrderItemSchema } from './model/index.js';
+import { CafeOrderItemSchema } from './model';
 
 const t = initTRPC.create();
 

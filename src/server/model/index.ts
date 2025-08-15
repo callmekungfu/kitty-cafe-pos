@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const DairyChoices = z.enum(['whole', 'oat', 'lactose-free']);
+export const DairyChoices = z.enum(['whole', 'oat', 'almond']);
 export const DrinkCategories = z.enum(['coffee', 'tea', 'tea-latte']);
 
 export const CafeListingSchema = z.object({

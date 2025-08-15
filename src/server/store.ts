@@ -1,7 +1,7 @@
 import KittyCafeListings from './data/listings';
-import { CafeListing, CafeOrder, CafeOrderItem } from './model';
+import type { CafeListing, CafeOrder, CafeOrderItem } from './model';
 
-let orders: CafeOrder[] = [];
+const orders: CafeOrder[] = [];
 let nextId = 1;
 
 export const getProducts = (): CafeListing[] => {

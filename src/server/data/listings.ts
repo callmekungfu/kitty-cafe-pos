@@ -1,4 +1,4 @@
-import { CafeListing } from '../model';
+import { type CafeListing } from '../model';
 
 const KittyCafeListings: CafeListing[] = [
   {
@@ -24,6 +24,24 @@ const KittyCafeListings: CafeListing[] = [
     isMilkProduct: false,
     canBeIced: false,
     category: 'coffee',
+  },
+  {
+    name: 'Matcha Latte',
+    isMilkProduct: true,
+    canBeIced: true,
+    category: 'tea-latte',
+  },
+  {
+    name: 'Hojicha Latte',
+    isMilkProduct: true,
+    canBeIced: true,
+    category: 'tea-latte',
+  },
+  {
+    name: 'Chai Latte',
+    canBeIced: true,
+    isMilkProduct: true,
+    category: 'tea-latte',
   },
 ];
 
