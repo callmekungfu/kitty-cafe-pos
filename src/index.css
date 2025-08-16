@@ -2,4 +2,15 @@
 
 @theme {
   --font-display: "Pixelify Sans", sans-serif;
+
+  --animate-wiggle: wiggle 0.5s infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
 }

@@ -5,9 +5,15 @@ import {
 import fastify from 'fastify';
 import { createContext } from './context';
 import { appRouter, type AppRouter } from './router';
+import cors from '@fastify/cors';
+
 const server = fastify({
   logger: true,
 });
+
+// Allow all for now
+server.register(cors);
+
 server.register(fastifyTRPCPlugin, {
   prefix: '/trpc',
   trpcOptions: {
