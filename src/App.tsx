@@ -1,4 +1,4 @@
-import OrderDialog from './components/Dialog';
+import OrderDialog from './components/OrderDialog';
 
 function App() {
   return (

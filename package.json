@@ -12,13 +12,17 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
+    "@tanstack/react-query": "^5.85.3",
     "@trpc/client": "^11.4.4",
     "@trpc/server": "^11.4.4",
     "fastify": "^5.5.0",
+    "immer": "^10.1.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0",
     "tailwindcss": "^4.1.12",
-    "zod": "^4.0.17"
+    "zod": "^4.0.17",
+    "zustand": "^5.0.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
