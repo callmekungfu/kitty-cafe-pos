@@ -1,4 +1,5 @@
 import { useKittyCafeStore } from '../client-store';
+import Button from './Button';
 import CategorySelection from './order-screens/CategorySelection';
 import CustomerName from './order-screens/CustomerName';
 import DairyCustomization from './order-screens/DairyCustomization';
@@ -39,14 +40,28 @@ function OrderDialog() {
   }
 
   if (store.activeStepIndex === 7) {
-    activeScreen = <OrderComment onNext={() => store.setStep(7)} />;
+    activeScreen = <OrderComment onNext={handleNext} />;
+  }
+
+  if (store.activeStepIndex === 8) {
+    return (
+      <div className="text-center">
+        <h1 className="font-display text-5xl text-white">
+          Thank you for your order, we will prepare it shortly!
+        </h1>
+        <div className="my-8"></div>
+        <Button onClick={store.restart}>
+          <span className="text-white">Start a new order</span>
+        </Button>
+      </div>
+    );
   }
 
   return (
     <div className="w-3xl p-2 border-8 border-amber-500 bg-amber-200">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
-        <h1 className="font-display text-4xl">Bongo Cafe</h1>
+        <h1 className="font-display text-4xl">Bongo cafe</h1>
         <div className="flex items-end mr-1">
           <WindowControl controlType="restart" onClick={store.restart} />
           <div className="mx-1"></div>
