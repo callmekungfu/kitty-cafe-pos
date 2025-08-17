@@ -19,10 +19,10 @@ function CustomerName({ onNext }: OpeningScreenProps) {
         onChange={(evt) => setCustomerName(evt.target.value)}
         placeholder="Enter your name here pawlease"
         value={customerName}
+        autoFocus
       />
       <div className="my-10"></div>
       <Button
-        pulsing
         disabled={!customerName}
         onClick={() => {
           store.setCustomerName(customerName);

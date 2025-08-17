@@ -1,27 +1,39 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
-import type { CafeListing } from './server/model';
+import type { CafeListing, DairyChoice } from './server/model';
 
 export type DrinkFilter = 'coffee' | 'tea-latte' | 'tea' | 'everything';
 
-interface CafeState {
+type CustomizationOptions = {
+  isIced: boolean;
+  milkChoice: DairyChoice;
+};
+
+type CafeState = {
   customerName: string;
   activeStepIndex: number;
   drinkTypeFilter: DrinkFilter;
   selectedDrink?: CafeListing;
+  customizationOptions: Partial<CustomizationOptions>;
+  noteForBarista: string;
   setStep: (activeStep: number) => void;
   setCustomerName: (name: string) => void;
   nextStep: () => void;
   setDrinkFilter: (filter: DrinkFilter) => void;
   restart: () => void;
   setCoffeeSelection: (selection: CafeListing) => void;
-}
+  setIced: (isIced: boolean) => void;
+  setMilkChoice: (choice: DairyChoice) => void;
+  setNote: (note: string) => void;
+};
 
 export const useKittyCafeStore = create<CafeState>()(
   immer((set, _, store) => ({
     customerName: '',
     activeStepIndex: 1,
     drinkTypeFilter: 'everything',
+    customizationOptions: {},
+    noteForBarista: '',
     setStep: (activeStep) =>
       set((state) => {
         state.activeStepIndex = activeStep;
@@ -43,5 +55,17 @@ export const useKittyCafeStore = create<CafeState>()(
         state.selectedDrink = selection;
       }),
     restart: () => set(() => store.getInitialState()),
+    setIced: (isIced: boolean) =>
+      set((state) => {
+        state.customizationOptions.isIced = isIced;
+      }),
+    setMilkChoice: (choice) =>
+      set((state) => {
+        state.customizationOptions.milkChoice = choice;
+      }),
+    setNote: (note) =>
+      set((state) => {
+        state.noteForBarista = note;
+      }),
   })),
 );

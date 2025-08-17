@@ -8,7 +8,7 @@ export interface CategoryScreenProps {
 }
 
 function DrinkSelection({ onNext }: CategoryScreenProps) {
-  const { drinkTypeFilter } = useKittyCafeStore();
+  const { drinkTypeFilter, setCoffeeSelection } = useKittyCafeStore();
   const { data: products } = useQuery({
     queryKey: ['drink-listings'],
     queryFn: () => trpc.getProducts.query(),
@@ -32,6 +32,7 @@ function DrinkSelection({ onNext }: CategoryScreenProps) {
           <>
             <Button
               onClick={() => {
+                setCoffeeSelection(product);
                 onNext();
               }}
             >

@@ -32,7 +32,7 @@ const KittyCafeListings: CafeListing[] = [
     category: 'tea-latte',
   },
   {
-    name: 'Hojicha Latte',
+    name: 'Hoejicha Latte',
     isMilkProduct: true,
     canBeIced: true,
     category: 'tea-latte',

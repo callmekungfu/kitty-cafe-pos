@@ -1,8 +1,11 @@
 import { useKittyCafeStore } from '../client-store';
 import CategorySelection from './order-screens/CategorySelection';
 import CustomerName from './order-screens/CustomerName';
+import DairyCustomization from './order-screens/DairyCustomization';
 import DrinkSelection from './order-screens/DrinkSelection';
+import IcedCustomization from './order-screens/IcedCustomization';
 import OpeningScreen from './order-screens/Opening';
+import OrderComment from './order-screens/OrderComment';
 import PawgressBar from './PawgressBar';
 import WindowControl from './WindowControl';
 
@@ -25,6 +28,18 @@ function OrderDialog() {
 
   if (store.activeStepIndex === 4) {
     activeScreen = <DrinkSelection onNext={handleNext} />;
+  }
+
+  if (store.activeStepIndex === 5) {
+    activeScreen = <DairyCustomization onNext={() => store.setStep(6)} />;
+  }
+
+  if (store.activeStepIndex === 6) {
+    activeScreen = <IcedCustomization onNext={() => store.setStep(7)} />;
+  }
+
+  if (store.activeStepIndex === 7) {
+    activeScreen = <OrderComment onNext={() => store.setStep(7)} />;
   }
 
   return (
