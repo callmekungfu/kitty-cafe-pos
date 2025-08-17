@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useKittyCafeStore } from '../../client-store';
 import Button from '../Button';
 import Input from '../Input';
-import { useMutation } from '@tanstack/react-query';
 import { trpc } from '../../trpc-client';
 
 export interface OrderCommentProps {
@@ -17,17 +16,7 @@ function OrderComment({ onNext }: OrderCommentProps) {
     customizationOptions: { isIced, milkChoice },
     ...store
   } = useKittyCafeStore();
-  const { mutateAsync } = useMutation({
-    mutationFn: () =>
-      trpc.createOrder.mutate({
-        customerName: store.customerName,
-        item: {
-          isIced: isIced ?? false,
-          productName: selectedDrink?.name ?? '',
-          milkChoice,
-        },
-      }),
-  });
+  const { mutateAsync } = trpc.createOrder.useMutation();
   const [note, setNoteInternal] = useState(noteForBarista);
   return (
     <div className="text-center">
@@ -42,7 +31,14 @@ function OrderComment({ onNext }: OrderCommentProps) {
       <Button
         onClick={async () => {
           setNote(note);
-          await mutateAsync();
+          await mutateAsync({
+            customerName: store.customerName,
+            item: {
+              isIced: isIced ?? false,
+              productName: selectedDrink?.name ?? '',
+              milkChoice,
+            },
+          });
           onNext();
         }}
       >

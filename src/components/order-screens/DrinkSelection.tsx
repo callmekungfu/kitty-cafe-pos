@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import { useKittyCafeStore } from '../../client-store';
 import Button from '../Button';
 import { trpc } from '../../trpc-client';
@@ -9,10 +8,7 @@ export interface CategoryScreenProps {
 
 function DrinkSelection({ onNext }: CategoryScreenProps) {
   const { drinkTypeFilter, setCoffeeSelection } = useKittyCafeStore();
-  const { data: products } = useQuery({
-    queryKey: ['drink-listings'],
-    queryFn: () => trpc.getProducts.query(),
-  });
+  const { data: products } = trpc.getProducts.useQuery();
   return (
     <div className="text-center">
       <div className="mt-10"></div>
