@@ -10,6 +10,7 @@ import OrderComment from './order-screens/OrderComment';
 import PawgressBar from './PawgressBar';
 import WindowControl from './WindowControl';
 import pawFilledUrl from './assets/paw-filled.svg';
+import { MdArrowLeft } from 'react-icons/md';
 
 const TOTAL_STEPS = 8;
 
@@ -76,6 +77,14 @@ function OrderDialog() {
       </div>
       {/* Content */}
       <div className="border-8 border-amber-500 bg-pink-100 p-3">
+        {store.activeStepIndex > 1 && (
+          <button
+            onClick={store.lastStep}
+            className="font-display flex items-center text-2xl hover:cursor-pointer"
+          >
+            <MdArrowLeft /> Back
+          </button>
+        )}
         {activeScreen}
         <PawgressBar
           current={store.activeStepIndex}

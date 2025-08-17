@@ -43,6 +43,24 @@ const KittyCafeListings: CafeListing[] = [
     isMilkProduct: true,
     category: 'tea-latte',
   },
+  {
+    name: 'Genmaicha',
+    canBeIced: false,
+    isMilkProduct: false,
+    category: 'tea',
+  },
+  {
+    name: 'White rose',
+    canBeIced: false,
+    isMilkProduct: false,
+    category: 'tea',
+  },
+  {
+    name: 'Earl gray',
+    canBeIced: false,
+    isMilkProduct: false,
+    category: 'tea',
+  },
 ];
 
 export default KittyCafeListings;

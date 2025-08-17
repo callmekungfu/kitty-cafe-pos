@@ -19,6 +19,7 @@ type CafeState = {
   setStep: (activeStep: number) => void;
   setCustomerName: (name: string) => void;
   nextStep: () => void;
+  lastStep: () => void;
   setDrinkFilter: (filter: DrinkFilter) => void;
   restart: () => void;
   setCoffeeSelection: (selection: CafeListing) => void;
@@ -45,6 +46,10 @@ export const useKittyCafeStore = create<CafeState>()(
     nextStep: () =>
       set((state) => {
         state.activeStepIndex = state.activeStepIndex + 1;
+      }),
+    lastStep: () =>
+      set((state) => {
+        state.activeStepIndex = state.activeStepIndex - 1;
       }),
     setDrinkFilter: (type) =>
       set((state) => {

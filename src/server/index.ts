@@ -44,7 +44,8 @@ server.register(fastifyTRPCPlugin, {
 });
 (async () => {
   try {
-    await server.listen({ port: 3000 });
+    const host = process.env.HOST ?? '127.0.0.1';
+    await server.listen({ port: 3000, host });
   } catch (err) {
     console.log(err);
     server.log.error(err);
