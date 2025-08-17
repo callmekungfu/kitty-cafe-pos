@@ -9,6 +9,7 @@ import OpeningScreen from './order-screens/Opening';
 import OrderComment from './order-screens/OrderComment';
 import PawgressBar from './PawgressBar';
 import WindowControl from './WindowControl';
+import pawFilledUrl from './assets/paw-filled.svg';
 
 const TOTAL_STEPS = 8;
 
@@ -61,7 +62,10 @@ function OrderDialog() {
     <div className="w-3xl p-2 border-8 border-amber-500 bg-amber-200">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
-        <h1 className="font-display text-4xl">Bongo cafe</h1>
+        <div className="flex items-center">
+          <img src={pawFilledUrl} alt="logo" className="-rotate-90 w-8 mr-2" />
+          <h1 className="font-display text-4xl">Bongo cafe</h1>
+        </div>
         <div className="flex items-end mr-1">
           <WindowControl controlType="restart" onClick={store.restart} />
           <div className="mx-1"></div>

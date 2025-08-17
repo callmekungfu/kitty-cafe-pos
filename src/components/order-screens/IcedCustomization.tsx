@@ -42,7 +42,7 @@ function IcedCustomization({ onNext }: DrinkCustomizationScreenProps) {
       <div className="my-4"></div>
       <div className="my-10"></div>
       <Button onClick={onNext} disabled={typeof isIced !== 'boolean'}>
-        Done!!
+        Continue!!
       </Button>
     </div>
   );

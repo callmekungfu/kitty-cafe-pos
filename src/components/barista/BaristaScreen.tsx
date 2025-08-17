@@ -1,5 +1,4 @@
 import { trpc } from '../../trpc-client';
-import Button from '../Button';
 
 export function BaristaScreen() {
   const utils = trpc.useUtils();
@@ -22,12 +21,13 @@ export function BaristaScreen() {
               {order.item.isIced && ' (Iced)'}
             </p>
             {order.item.milkChoice && <p>Milk: {order.item.milkChoice}</p>}
-            <Button
+            <div className="my-2"></div>
+            <button
               onClick={() => completeOrderMutation.mutate({ id: order.id })}
-              className="mt-4"
+              className="p-4 bg-indigo-500 text-white"
             >
               Complete Order
-            </Button>
+            </button>
           </div>
         ))}
       </div>
