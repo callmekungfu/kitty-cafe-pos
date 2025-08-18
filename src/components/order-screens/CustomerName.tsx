@@ -20,6 +20,7 @@ function CustomerName({ onNext }: OpeningScreenProps) {
         placeholder="Enter your name here pawlease"
         value={customerName}
         autoFocus
+        maxLength={100}
       />
       <div className="my-10"></div>
       <Button

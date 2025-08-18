@@ -19,11 +19,12 @@ export const appRouter = t.router({
     .input(
       z.object({
         item: CafeOrderItemSchema,
-        customerName: z.string(),
+        customerName: z.string().max(100),
+        note: z.string().max(100).optional(),
       }),
     )
     .mutation(({ input }) => {
-      const order = createOrder(input.customerName, input.item);
+      const order = createOrder(input.customerName, input.item, input.note);
       return order;
     }),
   getActiveOrders: t.procedure.query(() => {

@@ -26,6 +26,7 @@ function OrderComment({ onNext }: OrderCommentProps) {
       <Input
         onChange={(evt) => setNoteInternal(evt.target.value)}
         value={note}
+        maxLength={100}
       />
       <div className="my-10"></div>
       <Button
@@ -38,6 +39,7 @@ function OrderComment({ onNext }: OrderCommentProps) {
               productName: selectedDrink?.name ?? '',
               milkChoice,
             },
+            note,
           });
           onNext();
         }}

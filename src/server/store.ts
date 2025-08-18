@@ -11,12 +11,14 @@ export const getProducts = (): CafeListing[] => {
 export const createOrder = (
   customerName: string,
   item: CafeOrderItem,
+  note?: string,
 ): CafeOrder => {
   const newOrder: CafeOrder = {
     id: nextId++,
     item,
     status: 'active',
     customerName,
+    note,
   };
   orders.push(newOrder);
   return newOrder;

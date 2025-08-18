@@ -21,6 +21,7 @@ export const CafeOrderSchema = z.object({
   item: CafeOrderItemSchema,
   customerName: z.string(),
   status: z.enum(['active', 'completed']),
+  note: z.string().optional(),
 });
 
 export type CafeListing = z.infer<typeof CafeListingSchema>;
